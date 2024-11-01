@@ -14,7 +14,15 @@ IndexLoader = {
       Buffer: ['buffer', 'Buffer'],
       process: 'process/browser'
     })
-  ]
+  ],
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: ["style-loader", 'css-loader'],
+      },
+    ]
+  }
 }
 
 module.exports = [IndexLoader]

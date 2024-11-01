@@ -6,6 +6,7 @@ import { HashState } from "./state"
 import { Render } from './render'
 import { RenderOSD } from './osd'
 import * as d3 from "d3"
+import * as bootstrapSelect from 'bootstrap-select/dist/css/bootstrap-select.css'
 
 // Flatten an array of arrays
 const flatten = function(items) {
@@ -3319,7 +3320,7 @@ const to_grid_shape = (grid) => {
   return {
     numRows, numColumns, cellWidth, cellHeight, maxImageHeight, spacingFraction
   };
-} 
+}
 
 const getEmptyTileUrl = (max, name, format) => {
   const getTileUrl = getGetTileUrl('target', name, max, format);
@@ -3422,7 +3423,7 @@ const build_page_with_exhibit = function(exhibit, options) {
   hashstate.gl_state.setViewer(viewer);
   // Define all required layers
   const gl_targets = [
-    false, true 
+    false, true
   ];
   const n_total_layers = (
     hashstate.mask_layers.length + gl_targets.length
@@ -3497,11 +3498,6 @@ export const build_page = function(options) {
   linkElement1.setAttribute('type', 'text/css');
   linkElement1.setAttribute('href', 'data:text/css;charset=UTF-8,' + encodeURIComponent(exhibitCSS));
   document.head.appendChild(linkElement1);
-  var linkElement2 = document.createElement('link');
-  linkElement2.setAttribute('rel', 'stylesheet');
-  linkElement2.setAttribute('type', 'text/css');
-  linkElement2.setAttribute('href', "https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css");
-  document.head.appendChild(linkElement2);
 
   // fill the main div with content
   const el = document.getElementById(options.id);
@@ -3512,7 +3508,7 @@ export const build_page = function(options) {
   const zoom_in_el = el.getElementsByClassName('minerva-zoom-in')[0];
   options.noHome = !options.homeUrl;
   if (!options.noHome) {
-    home_el.href = options.homeUrl; 
+    home_el.href = options.homeUrl;
   }
   osd_el.id = options.id + '-openseadragon';
   zoom_out_el.id = options.id + '-zoom-out';
